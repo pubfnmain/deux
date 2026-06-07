@@ -1,0 +1,61 @@
+# ============================================================
+# Deux — Linen (light) · Alacritty theme
+# Generated from deux.yaml :: themes.light
+#
+# Import from your alacritty.toml:
+#   [general]
+#   import = ["~/path/to/deux/alacritty/deux-light.toml"]
+#
+# Requires Alacritty ≥ 0.13 (TOML config) and a true-color terminal.
+# ============================================================
+
+[colors.primary]
+background = "#f6efe4"   # surfaces.bg
+foreground = "#4a3a2c"   # text.fg
+dim_foreground = "#8a7a66"    # text.fg-muted
+
+[colors.cursor]
+text   = "#f6efe4"       # surfaces.bg
+cursor = "#c46a4a"       # aliases.cursor -> syntax.num (terracotta)
+
+[colors.vi_mode_cursor]
+text   = "#f6efe4"
+cursor = "#c08a3e"       # syntax.fn (amber)
+
+[colors.selection]
+text       = "#4a3a2c"   # text.fg
+background = "#e8d4b0"   # surfaces.selection
+
+[colors.search.matches]
+foreground = "#f6efe4"
+background = "#c08a3e"   # syntax.fn
+
+[colors.search.focused_match]
+foreground = "#f6efe4"
+background = "#c46a4a"   # syntax.num
+
+[colors.footer_bar]
+foreground = "#4a3a2c"
+background = "#ede2cd"   # surfaces.panel
+
+# ── 16-color ANSI ───────────────────────────────────────────
+# Warm pastel palette; blue/cyan are synthesized to match.
+[colors.normal]
+black   = "#4a3a2c"      # text.fg
+red     = "#c44a4a"      # diagnostics.error
+green   = "#6e8b5a"      # syntax.str  (moss)
+yellow  = "#c08a3e"      # syntax.fn   (amber)
+blue    = "#4a6f99"      # synthesized dusty blue
+magenta = "#b85c7a"      # syntax.kw   (dusty rose)
+cyan    = "#4a8a7a"      # synthesized teal
+white   = "#ddd0b5"      # surfaces.line
+
+[colors.bright]
+black   = "#8a7a66"      # text.fg-muted
+red     = "#a85a48"      # syntax.const (clay)
+green   = "#4a6a38"      # diff.add-fg (deep moss)
+yellow  = "#d0a050"      # synthesized bright amber
+blue    = "#5a7faa"      # synthesized bright blue
+magenta = "#8a6fa8"      # syntax.ty   (lavender)
+cyan    = "#5a9a8a"      # synthesized bright teal
+white   = "#f6efe4"      # surfaces.bg (cream)

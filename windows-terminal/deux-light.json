@@ -1,0 +1,26 @@
+{
+  "name": "Deux Linen",
+
+  "background": "#F6EFE4",
+  "foreground": "#4A3A2C",
+  "cursorColor": "#C46A4A",
+  "selectionBackground": "#E8D4B0",
+
+  "black": "#4A3A2C",
+  "red": "#C44A4A",
+  "green": "#6E8B5A",
+  "yellow": "#C08A3E",
+  "blue": "#4A6F99",
+  "purple": "#B85C7A",
+  "cyan": "#4A8A7A",
+  "white": "#DDD0B5",
+
+  "brightBlack": "#8A7A66",
+  "brightRed": "#A85A48",
+  "brightGreen": "#4A6A38",
+  "brightYellow": "#D0A050",
+  "brightBlue": "#5A7FAA",
+  "brightPurple": "#8A6FA8",
+  "brightCyan": "#5A9A8A",
+  "brightWhite": "#F6EFE4"
+}

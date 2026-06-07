@@ -1,0 +1,61 @@
+# ============================================================
+# Deux — Embers (dark) · Alacritty theme
+# Generated from deux.yaml :: themes.dark
+#
+# Import from your alacritty.toml:
+#   [general]
+#   import = ["~/path/to/deux/alacritty/deux-dark.toml"]
+#
+# Requires Alacritty ≥ 0.13 (TOML config) and a true-color terminal.
+# ============================================================
+
+[colors.primary]
+background = "#1e1c1a"   # surfaces.bg
+foreground = "#e8dcc8"   # text.fg
+dim_foreground = "#a89478"    # text.fg-muted
+
+[colors.cursor]
+text   = "#1e1c1a"       # surfaces.bg
+cursor = "#e8a878"       # aliases.cursor -> syntax.num (peach)
+
+[colors.vi_mode_cursor]
+text   = "#1e1c1a"
+cursor = "#e8c078"       # syntax.fn (gold)
+
+[colors.selection]
+text       = "#e8dcc8"   # text.fg
+background = "#45433f"   # surfaces.selection
+
+[colors.search.matches]
+foreground = "#1e1c1a"
+background = "#e8c078"   # syntax.fn
+
+[colors.search.focused_match]
+foreground = "#1e1c1a"
+background = "#e8a878"   # syntax.num
+
+[colors.footer_bar]
+foreground = "#e8dcc8"
+background = "#181614"   # surfaces.panel
+
+# ── 16-color ANSI ───────────────────────────────────────────
+# Warm pastel palette; blue/cyan are synthesized to match.
+[colors.normal]
+black   = "#272523"      # surfaces.bg-alt
+red     = "#e89898"      # diagnostics.error
+green   = "#b8c89a"      # syntax.str  (sage)
+yellow  = "#e8c078"      # syntax.fn   (gold)
+blue    = "#a8bcd8"      # synthesized dusty blue
+magenta = "#e89aa8"      # syntax.kw   (blush)
+cyan    = "#a0c8be"      # synthesized soft teal
+white   = "#e8dcc8"      # text.fg
+
+[colors.bright]
+black   = "#8a7a66"      # syntax.cmt  (ash)
+red     = "#e89878"      # syntax.const (salmon)
+green   = "#c8d8a8"      # diff.add-fg (light sage)
+yellow  = "#e8d0a0"      # synthesized light gold
+blue    = "#bccce0"      # synthesized light blue
+magenta = "#c8a8d8"      # syntax.ty   (lilac)
+cyan    = "#b8d8ce"      # synthesized light teal
+white   = "#f6efe4"      # surfaces.bg (light cream)

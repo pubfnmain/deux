@@ -1,0 +1,26 @@
+{
+  "name": "Deux Embers",
+
+  "background": "#1E1C1A",
+  "foreground": "#E8DCC8",
+  "cursorColor": "#E8A878",
+  "selectionBackground": "#45433F",
+
+  "black": "#272523",
+  "red": "#E89898",
+  "green": "#B8C89A",
+  "yellow": "#E8C078",
+  "blue": "#A8BCD8",
+  "purple": "#E89AA8",
+  "cyan": "#A0C8BE",
+  "white": "#E8DCC8",
+
+  "brightBlack": "#8A7A66",
+  "brightRed": "#E89878",
+  "brightGreen": "#C8D8A8",
+  "brightYellow": "#E8D0A0",
+  "brightBlue": "#BCCCE0",
+  "brightPurple": "#C8A8D8",
+  "brightCyan": "#B8D8CE",
+  "brightWhite": "#F6EFE4"
+}
