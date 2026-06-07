@@ -1,0 +1,102 @@
+# ============================================================
+# Deux — soft warm pastel code color scheme
+# v1.0 · light + dark
+# ============================================================
+# Reference syntax: {group.token} resolves within the same theme.
+# Aliases section holds tokens that are equal across both themes.
+
+meta:
+  name: Deux
+  version: "1.0"
+  themes:
+    light: Linen
+    dark:  Embers
+
+# ── Primitive tokens (raw hex per theme) ────────────────────
+
+themes:
+  light:
+    surfaces:
+      bg:        "#f6efe4"
+      bg-alt:    "#efe6d6"
+      panel:     "#ede2cd"
+      line:      "#ddd0b5"
+      selection: "#e8d4b0"
+    text:
+      fg:        "#4a3a2c"
+      fg-muted:  "#8a7a66"
+    syntax:
+      kw:        "#b85c7a"   # keyword     — dusty rose
+      str:       "#6e8b5a"   # string      — moss
+      fn:        "#c08a3e"   # function    — amber
+      num:       "#c46a4a"   # number      — terracotta
+      ty:        "#8a6fa8"   # type        — lavender
+      const:     "#a85a48"   # constant    — clay
+      cmt:       "#a89478"   # comment     — faded sand
+      op:        "#7a5d4a"   # operator    — warm brown
+    diagnostics:
+      error:     "#c44a4a"
+    diff:
+      add-bg:    "#dde9c8"
+      add-fg:    "#4a6a38"
+      del-bg:    "#ecd0c8"
+      del-fg:    "#8a3a2c"
+
+  dark:
+    surfaces:
+      bg:        "#1e1c1a"
+      bg-alt:    "#272523"
+      panel:     "#181614"
+      line:      "#45433f"
+      selection: "#45433f"
+    text:
+      fg:        "#e8dcc8"
+      fg-muted:  "#a89478"
+    syntax:
+      kw:        "#e89aa8"   # keyword     — blush
+      str:       "#b8c89a"   # string      — sage
+      fn:        "#e8c078"   # function    — gold
+      num:       "#e8a878"   # number      — peach
+      ty:        "#c8a8d8"   # type        — lilac
+      const:     "#e89878"   # constant    — salmon
+      cmt:       "#8a7a66"   # comment     — ash
+      op:        "#c8b8a0"   # operator    — warm grey
+    diagnostics:
+      error:     "#e89898"
+    diff:
+      add-bg:    "#3a4a2e"
+      add-fg:    "#c8d8a8"
+      del-bg:    "#4a3028"
+      del-fg:    "#e8a898"
+
+# ── Alias tokens (theme-agnostic, resolve via references) ───
+# These tokens are identical in both themes — they point to
+# primitives above rather than hardcoding the same hex twice.
+
+aliases:
+  cursor:  "{syntax.num}"
+
+  # HTML / CSS role aliases
+  tag:     "{syntax.kw}"
+  attr:    "{syntax.fn}"
+  prop:    "{syntax.ty}"
+
+  # Diagnostic aliases
+  warn:    "{syntax.fn}"
+  info:    "{syntax.str}"
+  hint:    "{syntax.ty}"
+
+  # Astro code highlighter mapping
+  astro-code:
+    foreground:              "{text.fg}"
+    background:              "{surfaces.bg}"
+    token:
+      constant:              "{syntax.const}"
+      string:                "{syntax.str}"
+      string-expression:     "{syntax.str}"
+      comment:               "{syntax.cmt}"
+      keyword:               "{syntax.kw}"
+      parameter:             "{text.fg}"
+      function:              "{syntax.fn}"
+      punctuation:           "{syntax.op}"
+      link:                  "{syntax.kw}"
