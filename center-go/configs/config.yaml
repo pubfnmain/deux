@@ -1,0 +1,13 @@
+tigerbeetle:
+  cluster_id: 0
+  address: 3000
+
+valkey:
+  url: localhost:6379
+
+postgres:
+  hostname: localhost
+  port: 5432
+  database: postgres
+  username: postgres
+  password: postgres

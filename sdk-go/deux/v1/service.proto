@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+package deux.v1;
+
+import "deux/v1/authorize.proto";
+
+service CenterService {
+  rpc Authorize (AuthorizeRequest) returns (AuthorizeResponse);
+}

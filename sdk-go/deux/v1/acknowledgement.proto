@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+package deux.v1;
+
+enum Acknowledgement {
+  ACKNOWLEDGEMENT_UNSPECIFIED = 0;
+  ACKNOWLEDGEMENT_ACK = 1;
+  ACKNOWLEDGEMENT_NACK = 2;
+}

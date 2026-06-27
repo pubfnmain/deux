@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package deux.v1;
+
+import "deux/v1/acknowledgement.proto";
+
+message FinalizeRequest {
+  string payment_id = 1;
+}
+
+message FinalizeResponse {
+  string payment_id = 1;
+  Acknowledgement status = 2;
+}
+
