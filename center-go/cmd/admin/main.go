@@ -6,7 +6,7 @@ import (
 	"os"
 	"strconv"
 
-	"github.com/pubfnmain/deux/interop-go/internal/config"
+	"github.com/pubfnmain/deux/center-go/internal/config"
 	tigerbeetle "github.com/tigerbeetle/tigerbeetle-go"
 )
 

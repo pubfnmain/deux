@@ -3,7 +3,9 @@ syntax = "proto3";
 package deux.v1;
 
 import "deux/v1/authorize.proto";
+import "deux/v1/finalize.proto";
 
 service CenterService {
   rpc Authorize (AuthorizeRequest) returns (AuthorizeResponse);
+  rpc Finalize (FinalizeRequest) returns (FinalizeResponse);
 }

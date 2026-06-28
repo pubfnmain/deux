@@ -1,4 +1,7 @@
 go 1.26.3
 
 use provider-go
+
 use center-go
+
+use sdk-go

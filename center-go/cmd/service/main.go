@@ -12,9 +12,12 @@ import (
 	"syscall"
 	"time"
 
+	"connectrpc.com/connect"
+	"connectrpc.com/otelconnect"
 	"github.com/jackc/pgx/v5/pgxpool"
-	"github.com/pubfnmain/deux/interop-go/internal/api"
-	"github.com/pubfnmain/deux/interop-go/internal/config"
+	"github.com/pubfnmain/deux/center-go/internal/api"
+	"github.com/pubfnmain/deux/center-go/internal/config"
+	"github.com/pubfnmain/deux/sdk-go/gen/deux/v1/deuxv1connect"
 	tigerbeetle "github.com/tigerbeetle/tigerbeetle-go"
 	"github.com/valkey-io/valkey-go"
 )
@@ -28,6 +31,17 @@ func Logging(next http.Handler) http.Handler {
 }
 
 func run() error {
+	otelInterceptor, err := otelconnect.NewInterceptor()
+	if err != nil {
+		return err
+	}
+	svc := api.NewHandler()
+
+	path, h := deuxv1connect.NewCenterServiceHandler(
+		svc,
+		connect.WithInterceptors(otelInterceptor),
+	)
+
 	port := flag.Int64("port", 7890, "Port to listen on")
 	flag.Parse()
 
@@ -43,6 +57,7 @@ func run() error {
 
 	mux := http.NewServeMux()
 
+	mux.Handle(path, h)
 	mux.HandleFunc("/health", api.Health)
 
 	ctx, stop := signal.NotifyContext(context.Background(), os.Interrupt, syscall.SIGTERM)
@@ -55,12 +70,17 @@ func run() error {
 	defer pool.Close()
 	slog.Info("connected to postgres")
 
+	if err := pool.Ping(ctx); err != nil {
+		return err
+	}
+	slog.Info("pinged postgres")
+
 	tbClient, err := tigerbeetle.NewClient(tigerbeetle.ToUint128(cfg.TigerBeetle.ClusterID), []string{strconv.FormatUint(cfg.TigerBeetle.Address, 10)})
 	if err != nil {
 		return err
 	}
 	defer tbClient.Close()
-	slog.Info("connected to tigerbeetle")
+	slog.Info("created tigerbeetle client")
 
 	vkClient, err := valkey.NewClient(valkey.ClientOption{InitAddress: []string{cfg.Valkey.URL}})
 	if err != nil {
@@ -70,8 +90,15 @@ func run() error {
 	slog.Info("connected to valkey")
 
 	handler := Logging(mux)
+	p := &http.Protocols{}
+	p.SetHTTP1(true)
+	p.SetUnencryptedHTTP2(true)
 
-	server := &http.Server{Handler: handler, Addr: ":" + strconv.FormatInt(*port, 10)}
+	server := &http.Server{
+		Handler:   handler,
+		Addr:      ":" + strconv.FormatInt(*port, 10),
+		Protocols: p,
+	}
 
 	go func() {
 		if err := server.ListenAndServe(); err != nil && !errors.Is(err, http.ErrServerClosed) {

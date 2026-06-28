@@ -19,7 +19,7 @@ type postgres struct {
 }
 
 func (p *postgres) Conn() string {
-	return fmt.Sprintf("hostname=%s port=%d user=%s password=%s dbname=%s sslmode=disable", p.Hostname, p.Port, p.Username, p.Password, p.Database)
+	return fmt.Sprintf("host=%s port=%d user=%s password=%s dbname=%s sslmode=disable", p.Hostname, p.Port, p.Username, p.Password, p.Database)
 }
 
 type Config struct {
