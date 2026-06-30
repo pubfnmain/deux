@@ -7,9 +7,6 @@ import "deux/v1/acknowledgement.proto";
 message AuthorizeRequest {
   string payment_id = 1;
   uint64 transaction_amount = 2;
+    
 }
 
-message AuthorizeResponse {
-  string payment_id = 1;
-  Acknowledgement status = 2;
-}

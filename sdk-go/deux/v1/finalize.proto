@@ -8,8 +8,3 @@ message FinalizeRequest {
   string payment_id = 1;
 }
 
-message FinalizeResponse {
-  string payment_id = 1;
-  Acknowledgement status = 2;
-}
-

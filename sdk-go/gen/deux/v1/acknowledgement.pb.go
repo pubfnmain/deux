@@ -70,11 +70,57 @@ func (Acknowledgement) EnumDescriptor() ([]byte, []int) {
 	return file_deux_v1_acknowledgement_proto_rawDescGZIP(), []int{0}
 }
 
+type AcknowledgementResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Status        Acknowledgement        `protobuf:"varint,1,opt,name=status,proto3,enum=deux.v1.Acknowledgement" json:"status,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AcknowledgementResponse) Reset() {
+	*x = AcknowledgementResponse{}
+	mi := &file_deux_v1_acknowledgement_proto_msgTypes[0]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AcknowledgementResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AcknowledgementResponse) ProtoMessage() {}
+
+func (x *AcknowledgementResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_deux_v1_acknowledgement_proto_msgTypes[0]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AcknowledgementResponse.ProtoReflect.Descriptor instead.
+func (*AcknowledgementResponse) Descriptor() ([]byte, []int) {
+	return file_deux_v1_acknowledgement_proto_rawDescGZIP(), []int{0}
+}
+
+func (x *AcknowledgementResponse) GetStatus() Acknowledgement {
+	if x != nil {
+		return x.Status
+	}
+	return Acknowledgement_ACKNOWLEDGEMENT_UNSPECIFIED
+}
+
 var File_deux_v1_acknowledgement_proto protoreflect.FileDescriptor
 
 const file_deux_v1_acknowledgement_proto_rawDesc = "" +
 	"\n" +
-	"\x1ddeux/v1/acknowledgement.proto\x12\adeux.v1*e\n" +
+	"\x1ddeux/v1/acknowledgement.proto\x12\adeux.v1\"K\n" +
+	"\x17AcknowledgementResponse\x120\n" +
+	"\x06status\x18\x01 \x01(\x0e2\x18.deux.v1.AcknowledgementR\x06status*e\n" +
 	"\x0fAcknowledgement\x12\x1f\n" +
 	"\x1bACKNOWLEDGEMENT_UNSPECIFIED\x10\x00\x12\x17\n" +
 	"\x13ACKNOWLEDGEMENT_ACK\x10\x01\x12\x18\n" +
@@ -94,15 +140,18 @@ func file_deux_v1_acknowledgement_proto_rawDescGZIP() []byte {
 }
 
 var file_deux_v1_acknowledgement_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
+var file_deux_v1_acknowledgement_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_deux_v1_acknowledgement_proto_goTypes = []any{
-	(Acknowledgement)(0), // 0: deux.v1.Acknowledgement
+	(Acknowledgement)(0),            // 0: deux.v1.Acknowledgement
+	(*AcknowledgementResponse)(nil), // 1: deux.v1.AcknowledgementResponse
 }
 var file_deux_v1_acknowledgement_proto_depIdxs = []int32{
-	0, // [0:0] is the sub-list for method output_type
-	0, // [0:0] is the sub-list for method input_type
-	0, // [0:0] is the sub-list for extension type_name
-	0, // [0:0] is the sub-list for extension extendee
-	0, // [0:0] is the sub-list for field type_name
+	0, // 0: deux.v1.AcknowledgementResponse.status:type_name -> deux.v1.Acknowledgement
+	1, // [1:1] is the sub-list for method output_type
+	1, // [1:1] is the sub-list for method input_type
+	1, // [1:1] is the sub-list for extension type_name
+	1, // [1:1] is the sub-list for extension extendee
+	0, // [0:1] is the sub-list for field type_name
 }
 
 func init() { file_deux_v1_acknowledgement_proto_init() }
@@ -116,13 +165,14 @@ func file_deux_v1_acknowledgement_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_deux_v1_acknowledgement_proto_rawDesc), len(file_deux_v1_acknowledgement_proto_rawDesc)),
 			NumEnums:      1,
-			NumMessages:   0,
+			NumMessages:   1,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
 		GoTypes:           file_deux_v1_acknowledgement_proto_goTypes,
 		DependencyIndexes: file_deux_v1_acknowledgement_proto_depIdxs,
 		EnumInfos:         file_deux_v1_acknowledgement_proto_enumTypes,
+		MessageInfos:      file_deux_v1_acknowledgement_proto_msgTypes,
 	}.Build()
 	File_deux_v1_acknowledgement_proto = out.File
 	file_deux_v1_acknowledgement_proto_goTypes = nil

@@ -24,23 +24,22 @@ var File_deux_v1_service_proto protoreflect.FileDescriptor
 
 const file_deux_v1_service_proto_rawDesc = "" +
 	"\n" +
-	"\x15deux/v1/service.proto\x12\adeux.v1\x1a\x17deux/v1/authorize.proto\x1a\x16deux/v1/finalize.proto2\x94\x01\n" +
-	"\rCenterService\x12B\n" +
-	"\tAuthorize\x12\x19.deux.v1.AuthorizeRequest\x1a\x1a.deux.v1.AuthorizeResponse\x12?\n" +
-	"\bFinalize\x12\x18.deux.v1.FinalizeRequest\x1a\x19.deux.v1.FinalizeResponseB\x8d\x01\n" +
+	"\x15deux/v1/service.proto\x12\adeux.v1\x1a\x17deux/v1/authorize.proto\x1a\x16deux/v1/finalize.proto\x1a\x1ddeux/v1/acknowledgement.proto2\xa1\x01\n" +
+	"\rCenterService\x12H\n" +
+	"\tAuthorize\x12\x19.deux.v1.AuthorizeRequest\x1a .deux.v1.AcknowledgementResponse\x12F\n" +
+	"\bFinalize\x12\x18.deux.v1.FinalizeRequest\x1a .deux.v1.AcknowledgementResponseB\x8d\x01\n" +
 	"\vcom.deux.v1B\fServiceProtoP\x01Z3github.com/pubfnmain/deux/sdk-go/gen/deux/v1;deuxv1\xa2\x02\x03DXX\xaa\x02\aDeux.V1\xca\x02\aDeux\\V1\xe2\x02\x13Deux\\V1\\GPBMetadata\xea\x02\bDeux::V1b\x06proto3"
 
 var file_deux_v1_service_proto_goTypes = []any{
-	(*AuthorizeRequest)(nil),  // 0: deux.v1.AuthorizeRequest
-	(*FinalizeRequest)(nil),   // 1: deux.v1.FinalizeRequest
-	(*AuthorizeResponse)(nil), // 2: deux.v1.AuthorizeResponse
-	(*FinalizeResponse)(nil),  // 3: deux.v1.FinalizeResponse
+	(*AuthorizeRequest)(nil),        // 0: deux.v1.AuthorizeRequest
+	(*FinalizeRequest)(nil),         // 1: deux.v1.FinalizeRequest
+	(*AcknowledgementResponse)(nil), // 2: deux.v1.AcknowledgementResponse
 }
 var file_deux_v1_service_proto_depIdxs = []int32{
 	0, // 0: deux.v1.CenterService.Authorize:input_type -> deux.v1.AuthorizeRequest
 	1, // 1: deux.v1.CenterService.Finalize:input_type -> deux.v1.FinalizeRequest
-	2, // 2: deux.v1.CenterService.Authorize:output_type -> deux.v1.AuthorizeResponse
-	3, // 3: deux.v1.CenterService.Finalize:output_type -> deux.v1.FinalizeResponse
+	2, // 2: deux.v1.CenterService.Authorize:output_type -> deux.v1.AcknowledgementResponse
+	2, // 3: deux.v1.CenterService.Finalize:output_type -> deux.v1.AcknowledgementResponse
 	2, // [2:4] is the sub-list for method output_type
 	0, // [0:2] is the sub-list for method input_type
 	0, // [0:0] is the sub-list for extension type_name
@@ -55,6 +54,7 @@ func file_deux_v1_service_proto_init() {
 	}
 	file_deux_v1_authorize_proto_init()
 	file_deux_v1_finalize_proto_init()
+	file_deux_v1_acknowledgement_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

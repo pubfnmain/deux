@@ -7,3 +7,7 @@ enum Acknowledgement {
   ACKNOWLEDGEMENT_ACK = 1;
   ACKNOWLEDGEMENT_NACK = 2;
 }
+
+message AcknowledgementResponse {
+  Acknowledgement status = 1;
+}

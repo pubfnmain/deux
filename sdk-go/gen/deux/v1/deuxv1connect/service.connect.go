@@ -41,8 +41,8 @@ const (
 
 // CenterServiceClient is a client for the deux.v1.CenterService service.
 type CenterServiceClient interface {
-	Authorize(context.Context, *v1.AuthorizeRequest) (*v1.AuthorizeResponse, error)
-	Finalize(context.Context, *v1.FinalizeRequest) (*v1.FinalizeResponse, error)
+	Authorize(context.Context, *v1.AuthorizeRequest) (*v1.AcknowledgementResponse, error)
+	Finalize(context.Context, *v1.FinalizeRequest) (*v1.AcknowledgementResponse, error)
 }
 
 // NewCenterServiceClient constructs a client for the deux.v1.CenterService service. By default, it
@@ -56,13 +56,13 @@ func NewCenterServiceClient(httpClient connect.HTTPClient, baseURL string, opts 
 	baseURL = strings.TrimRight(baseURL, "/")
 	centerServiceMethods := v1.File_deux_v1_service_proto.Services().ByName("CenterService").Methods()
 	return &centerServiceClient{
-		authorize: connect.NewClient[v1.AuthorizeRequest, v1.AuthorizeResponse](
+		authorize: connect.NewClient[v1.AuthorizeRequest, v1.AcknowledgementResponse](
 			httpClient,
 			baseURL+CenterServiceAuthorizeProcedure,
 			connect.WithSchema(centerServiceMethods.ByName("Authorize")),
 			connect.WithClientOptions(opts...),
 		),
-		finalize: connect.NewClient[v1.FinalizeRequest, v1.FinalizeResponse](
+		finalize: connect.NewClient[v1.FinalizeRequest, v1.AcknowledgementResponse](
 			httpClient,
 			baseURL+CenterServiceFinalizeProcedure,
 			connect.WithSchema(centerServiceMethods.ByName("Finalize")),
@@ -73,12 +73,12 @@ func NewCenterServiceClient(httpClient connect.HTTPClient, baseURL string, opts 
 
 // centerServiceClient implements CenterServiceClient.
 type centerServiceClient struct {
-	authorize *connect.Client[v1.AuthorizeRequest, v1.AuthorizeResponse]
-	finalize  *connect.Client[v1.FinalizeRequest, v1.FinalizeResponse]
+	authorize *connect.Client[v1.AuthorizeRequest, v1.AcknowledgementResponse]
+	finalize  *connect.Client[v1.FinalizeRequest, v1.AcknowledgementResponse]
 }
 
 // Authorize calls deux.v1.CenterService.Authorize.
-func (c *centerServiceClient) Authorize(ctx context.Context, req *v1.AuthorizeRequest) (*v1.AuthorizeResponse, error) {
+func (c *centerServiceClient) Authorize(ctx context.Context, req *v1.AuthorizeRequest) (*v1.AcknowledgementResponse, error) {
 	response, err := c.authorize.CallUnary(ctx, connect.NewRequest(req))
 	if response != nil {
 		return response.Msg, err
@@ -87,7 +87,7 @@ func (c *centerServiceClient) Authorize(ctx context.Context, req *v1.AuthorizeRe
 }
 
 // Finalize calls deux.v1.CenterService.Finalize.
-func (c *centerServiceClient) Finalize(ctx context.Context, req *v1.FinalizeRequest) (*v1.FinalizeResponse, error) {
+func (c *centerServiceClient) Finalize(ctx context.Context, req *v1.FinalizeRequest) (*v1.AcknowledgementResponse, error) {
 	response, err := c.finalize.CallUnary(ctx, connect.NewRequest(req))
 	if response != nil {
 		return response.Msg, err
@@ -97,8 +97,8 @@ func (c *centerServiceClient) Finalize(ctx context.Context, req *v1.FinalizeRequ
 
 // CenterServiceHandler is an implementation of the deux.v1.CenterService service.
 type CenterServiceHandler interface {
-	Authorize(context.Context, *v1.AuthorizeRequest) (*v1.AuthorizeResponse, error)
-	Finalize(context.Context, *v1.FinalizeRequest) (*v1.FinalizeResponse, error)
+	Authorize(context.Context, *v1.AuthorizeRequest) (*v1.AcknowledgementResponse, error)
+	Finalize(context.Context, *v1.FinalizeRequest) (*v1.AcknowledgementResponse, error)
 }
 
 // NewCenterServiceHandler builds an HTTP handler from the service implementation. It returns the
@@ -135,10 +135,10 @@ func NewCenterServiceHandler(svc CenterServiceHandler, opts ...connect.HandlerOp
 // UnimplementedCenterServiceHandler returns CodeUnimplemented from all methods.
 type UnimplementedCenterServiceHandler struct{}
 
-func (UnimplementedCenterServiceHandler) Authorize(context.Context, *v1.AuthorizeRequest) (*v1.AuthorizeResponse, error) {
+func (UnimplementedCenterServiceHandler) Authorize(context.Context, *v1.AuthorizeRequest) (*v1.AcknowledgementResponse, error) {
 	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("deux.v1.CenterService.Authorize is not implemented"))
 }
 
-func (UnimplementedCenterServiceHandler) Finalize(context.Context, *v1.FinalizeRequest) (*v1.FinalizeResponse, error) {
+func (UnimplementedCenterServiceHandler) Finalize(context.Context, *v1.FinalizeRequest) (*v1.AcknowledgementResponse, error) {
 	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("deux.v1.CenterService.Finalize is not implemented"))
 }

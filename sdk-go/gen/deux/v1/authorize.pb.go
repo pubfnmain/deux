@@ -73,58 +73,6 @@ func (x *AuthorizeRequest) GetTransactionAmount() uint64 {
 	return 0
 }
 
-type AuthorizeResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	PaymentId     string                 `protobuf:"bytes,1,opt,name=payment_id,json=paymentId,proto3" json:"payment_id,omitempty"`
-	Status        Acknowledgement        `protobuf:"varint,2,opt,name=status,proto3,enum=deux.v1.Acknowledgement" json:"status,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *AuthorizeResponse) Reset() {
-	*x = AuthorizeResponse{}
-	mi := &file_deux_v1_authorize_proto_msgTypes[1]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *AuthorizeResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*AuthorizeResponse) ProtoMessage() {}
-
-func (x *AuthorizeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_deux_v1_authorize_proto_msgTypes[1]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use AuthorizeResponse.ProtoReflect.Descriptor instead.
-func (*AuthorizeResponse) Descriptor() ([]byte, []int) {
-	return file_deux_v1_authorize_proto_rawDescGZIP(), []int{1}
-}
-
-func (x *AuthorizeResponse) GetPaymentId() string {
-	if x != nil {
-		return x.PaymentId
-	}
-	return ""
-}
-
-func (x *AuthorizeResponse) GetStatus() Acknowledgement {
-	if x != nil {
-		return x.Status
-	}
-	return Acknowledgement_ACKNOWLEDGEMENT_UNSPECIFIED
-}
-
 var File_deux_v1_authorize_proto protoreflect.FileDescriptor
 
 const file_deux_v1_authorize_proto_rawDesc = "" +
@@ -133,11 +81,7 @@ const file_deux_v1_authorize_proto_rawDesc = "" +
 	"\x10AuthorizeRequest\x12\x1d\n" +
 	"\n" +
 	"payment_id\x18\x01 \x01(\tR\tpaymentId\x12-\n" +
-	"\x12transaction_amount\x18\x02 \x01(\x04R\x11transactionAmount\"d\n" +
-	"\x11AuthorizeResponse\x12\x1d\n" +
-	"\n" +
-	"payment_id\x18\x01 \x01(\tR\tpaymentId\x120\n" +
-	"\x06status\x18\x02 \x01(\x0e2\x18.deux.v1.AcknowledgementR\x06statusB\x8f\x01\n" +
+	"\x12transaction_amount\x18\x02 \x01(\x04R\x11transactionAmountB\x8f\x01\n" +
 	"\vcom.deux.v1B\x0eAuthorizeProtoP\x01Z3github.com/pubfnmain/deux/sdk-go/gen/deux/v1;deuxv1\xa2\x02\x03DXX\xaa\x02\aDeux.V1\xca\x02\aDeux\\V1\xe2\x02\x13Deux\\V1\\GPBMetadata\xea\x02\bDeux::V1b\x06proto3"
 
 var (
@@ -152,19 +96,16 @@ func file_deux_v1_authorize_proto_rawDescGZIP() []byte {
 	return file_deux_v1_authorize_proto_rawDescData
 }
 
-var file_deux_v1_authorize_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
+var file_deux_v1_authorize_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_deux_v1_authorize_proto_goTypes = []any{
-	(*AuthorizeRequest)(nil),  // 0: deux.v1.AuthorizeRequest
-	(*AuthorizeResponse)(nil), // 1: deux.v1.AuthorizeResponse
-	(Acknowledgement)(0),      // 2: deux.v1.Acknowledgement
+	(*AuthorizeRequest)(nil), // 0: deux.v1.AuthorizeRequest
 }
 var file_deux_v1_authorize_proto_depIdxs = []int32{
-	2, // 0: deux.v1.AuthorizeResponse.status:type_name -> deux.v1.Acknowledgement
-	1, // [1:1] is the sub-list for method output_type
-	1, // [1:1] is the sub-list for method input_type
-	1, // [1:1] is the sub-list for extension type_name
-	1, // [1:1] is the sub-list for extension extendee
-	0, // [0:1] is the sub-list for field type_name
+	0, // [0:0] is the sub-list for method output_type
+	0, // [0:0] is the sub-list for method input_type
+	0, // [0:0] is the sub-list for extension type_name
+	0, // [0:0] is the sub-list for extension extendee
+	0, // [0:0] is the sub-list for field type_name
 }
 
 func init() { file_deux_v1_authorize_proto_init() }
@@ -179,7 +120,7 @@ func file_deux_v1_authorize_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_deux_v1_authorize_proto_rawDesc), len(file_deux_v1_authorize_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   2,
+			NumMessages:   1,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

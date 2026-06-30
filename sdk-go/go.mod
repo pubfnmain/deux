@@ -8,6 +8,6 @@ tool (
 )
 
 require (
-	connectrpc.com/connect v1.20.0 // indirect
-	google.golang.org/protobuf v1.36.11 // indirect
+	connectrpc.com/connect v1.20.0
+	google.golang.org/protobuf v1.36.11
 )

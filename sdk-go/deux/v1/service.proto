@@ -4,8 +4,9 @@ package deux.v1;
 
 import "deux/v1/authorize.proto";
 import "deux/v1/finalize.proto";
+import "deux/v1/acknowledgement.proto";
 
 service CenterService {
-  rpc Authorize (AuthorizeRequest) returns (AuthorizeResponse);
-  rpc Finalize (FinalizeRequest) returns (FinalizeResponse);
+  rpc Authorize (AuthorizeRequest) returns (AcknowledgementResponse);
+  rpc Finalize (FinalizeRequest) returns (AcknowledgementResponse);
 }
